@@ -1,3 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            color: white
+        }
+        .odd {
+            background-color: red;
+        }
+        .even {
+            background-color: green;
+        }
+        .odd, .even {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+
 <?php
 
 /*
@@ -138,3 +166,54 @@ function exercise9() {
     </ul>
     ";
 }
+
+function exercise10() {
+    $string = '';
+    for ($i = 1; $i <= 8; $i++) {
+        $string .= '<div>';
+        for ($j = $i; $j <= $i + 8; $j++) {
+            if ($j % 2 == 0) {
+                $string .= "<span class='even'></span>";
+            } else {
+                $string .= "<span class='odd'></span>";
+            }
+        }
+        $string .= '</div>';
+    }
+
+    echo $string;
+}
+
+function exercise11() {
+    $n = 1;
+    $i = 1;
+    $string = '';
+    while ($n < 5) {
+        for ($j = 1; $j <= $n; $j++) {
+            $string .= "$i ";
+            $i++;
+        }
+        $string .= '<br>';
+        $n++;
+    }
+    echo $string;
+}
+
+function exercise12($row) {
+    $string = "";
+    for ($i = 0; $i < $row; $i++) {
+        for ($j = 1; $j <= $row - ceil((2 * $i + 1) / 2); $j++) {
+            $string .= '<span>a</span>';
+        }
+        for ($j = 1; $j <= 2 * $i + 1; $j++) {
+            $string .= "*";
+        }
+        $string .= '<br>';
+    }
+    echo $string;
+}
+
+exercise10();
+?>
+</body>
+</html>
